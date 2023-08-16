@@ -1,11 +1,20 @@
 const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
-			//Your data structures, A.K.A Entities
+			contacts: [],
+			users: null
 		},
 		actions: {
-			//(Arrow) Functions that update the Store
-			// Remember to use the scope: scope.state.store & scope.setState()
+			fetchData: async () => {
+				try {
+					const response = await fetch("https://playground.4geeks.com/apis/fake/contact/agenda");
+					let data = await response.json();
+					setStore({ contacts: data.results });
+					console.log(data);
+				} catch (error) {
+					console.log(error);
+				}
+			}
 		}
 	};
 };
