@@ -18,7 +18,6 @@ export const AddContact = () => {
 
 	const handleSubmit = () => {
 		actions.addContact(contact);
-		// Aquí puedes agregar cualquier lógica adicional que desees después de agregar un contacto
 	};
 
 	return (
